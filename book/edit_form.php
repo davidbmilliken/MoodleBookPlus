@@ -55,8 +55,8 @@ class book_chapter_edit_form extends moodleform {
         //$mform->addElement('advcheckbox', 'subchapter', get_string('subchapter', 'mod_book'), $disabledmsg);
 		
 		// support for 3 chapter levels
-		$options = array( 0 => get_string('chapter', 'mod_book'), 1 => get_string('subchapter', 'mod_book'), 2 => get_string('section', 'mod_book'));
-        $mform->addElement('select', 'subchapter', get_string('chapter', 'mod_book'), $options);
+		$sub_options = array( 0 => get_string('chapter', 'mod_book'), 1 => get_string('subchapter', 'mod_book'), 2 => get_string('section', 'mod_book'));
+        $mform->addElement('select', 'subchapter', get_string('chapter', 'mod_book'), $sub_options);
         $mform->setDefault('subchapter', 0);
 
         $mform->addElement('editor', 'content_editor', get_string('content', 'mod_book'), null, $options);
