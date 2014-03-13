@@ -42,6 +42,7 @@ $string['customtitles'] = 'Custom titles';
 $string['customtitles_help'] = 'Normally the chapter title is displayed in the table of contents (TOC) AND as a heading above the content.
 
 If the custom titles checkbox is ticked, the chapter title is NOT displayed as a heading above the content. A different title (perhaps longer than the chapter title) may be entered as part of the content.';
+$string['chapter'] = 'Chapter';
 $string['chapters'] = 'Chapters';
 $string['chaptertitle'] = 'Chapter title';
 $string['content'] = 'Content';
@@ -53,6 +54,7 @@ $string['event_chapter_viewed'] = 'Chapter viewed';
 $string['event_instances_list_viewed'] = 'Instances list viewed';
 $string['event_course_module_viewed'] = 'Course module viewed';
 $string['subchapter'] = 'Subchapter';
+$string['section'] = 'Section';
 $string['nocontent'] = 'No content has been added to this book yet.';
 $string['numbering'] = 'Chapter formatting';
 $string['numbering_help'] = '* None - Chapter and subchapter titles have no formatting

@@ -29,7 +29,8 @@ require_once(dirname(__FILE__).'/edit_form.php');
 $cmid       = required_param('cmid', PARAM_INT);  // Book Course Module ID
 $chapterid  = optional_param('id', 0, PARAM_INT); // Chapter ID
 $pagenum    = optional_param('pagenum', 0, PARAM_INT);
-$subchapter = optional_param('subchapter', 0, PARAM_BOOL);
+//$subchapter = optional_param('subchapter', 0, PARAM_BOOL);
+$subchapter = optional_param('subchapter', 0, PARAM_INT); // multiple chapter levels
 
 $cm = get_coursemodule_from_id('book', $cmid, 0, false, MUST_EXIST);
 $course = $DB->get_record('course', array('id'=>$cm->course), '*', MUST_EXIST);

@@ -102,7 +102,7 @@ if (!$chapterid) {
     $PAGE->set_url('/mod/book/view.php', array('id' => $id));
     notice(get_string('nocontent', 'mod_book'), $courseurl->out(false));
 }
-// Chapter doesnt exist or it is hidden for students
+// Chapter doesn't exist or it is hidden for students
 if ((!$chapter = $DB->get_record('book_chapters', array('id' => $chapterid, 'bookid' => $book->id))) or ($chapter->hidden and !$viewhidden)) {
     print_error('errorchapter', 'mod_book', $courseurl);
 }
@@ -195,14 +195,21 @@ $hidden = $chapter->hidden ? ' dimmed_text' : null;
 echo $OUTPUT->box_start('generalbox book_content' . $hidden);
 
 if (!$book->customtitles) {
-    if (!$chapter->subchapter) {
+    if ($chapter->subchapter == 0) {
         $currtitle = book_get_chapter_title($chapter->id, $chapters, $book, $context);
         echo $OUTPUT->heading($currtitle, 3);
-    } else {
+    } elseif ($chapter->subchapter == 1) {
         $currtitle = book_get_chapter_title($chapters[$chapter->id]->parent, $chapters, $book, $context);
         $currsubtitle = book_get_chapter_title($chapter->id, $chapters, $book, $context);
         echo $OUTPUT->heading($currtitle, 3);
         echo $OUTPUT->heading($currsubtitle, 4);
+    } elseif ($chapter->subchapter == 2) {
+        $currtitle = book_get_chapter_title($chapters[$chapters[$chapter->id]->parent]->parent, $chapters, $book, $context);
+        $currsubtitle = book_get_chapter_title($chapters[$chapter->id]->parent, $chapters, $book, $context);
+		$currsubsubtitle = book_get_chapter_title($chapter->id, $chapters, $book, $context);
+        echo $OUTPUT->heading($currtitle, 3);
+        echo $OUTPUT->heading($currsubtitle, 4);
+        echo $OUTPUT->heading($currsubsubtitle, 5);
     }
 }
 $chaptertext = file_rewrite_pluginfile_urls($chapter->content, 'pluginfile.php', $context->id, 'mod_book', 'chapter', $chapter->id);

@@ -28,3 +28,5 @@ $module->component = 'mod_book'; // Full name of the plugin (used for diagnostic
 $module->version   = 2013110500; // The current module version (Date: YYYYMMDDXX)
 $module->requires  = 2013110500; // Requires this Moodle version
 $module->cron      = 0;          // Period for cron to check this module (secs)
+
+$release = "2.6.2 bookplus"; // User-friendly version number
